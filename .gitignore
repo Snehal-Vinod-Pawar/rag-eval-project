@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# DeepEval cache
+.deepeval/
+
+# ChromaDB
+chroma_store/
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.svg
+
+# Text files, except dependency files
+*.txt
+!req.txt
+!requirements.txt
+!.env.example
