@@ -18,4 +18,5 @@ dependencies = [
     "portalocker[win32]>=4.4.1",
     "langchain-google-genai>=4.4.2",
     "langsmith>=0.14.12",
+    "streamlit>=1.67.0",
 ]
