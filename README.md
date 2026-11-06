@@ -1,3 +1,4 @@
+
 # LLM Evaluation Framework for RAG
 
 An evaluation framework for assessing the retrieval quality, response quality, safety, and operational performance of a Retrieval-Augmented Generation (RAG) application using **DeepEval** and **Google Gemini**.
@@ -12,6 +13,39 @@ An evaluation framework for assessing the retrieval quality, response quality, s
 - **Safety Evaluation:** Correctness, toxicity, prompt leakage, course-content leakage, PII leakage, and scope adherence.
 - **Cost Benchmarking:** Estimates token usage and API costs.
 - **Reliability Benchmarking:** Measures success rate, error rate, and retry behavior.
+
+## Preliminary Evaluation Results
+
+The framework has been tested using subsets of golden datasets to validate individual evaluation stages. The following results represent preliminary smoke-test runs rather than a complete benchmark.
+
+### 1. Quantitative Results
+
+| Evaluation Stage | Metric | Average Score | Pass Rate | Test Cases |
+|---|---|---:|---:|---:|
+| Retriever | Contextual Recall | 0.75 | 50% | 2 |
+| Retriever | Contextual Precision | 0.79 | 50% | 2 |
+| Generator | Faithfulness | 1.00 | 100% | 2 |
+| Generator | Answer Relevancy | 1.00 | 100% | 2 |
+
+### 2. Evaluation Coverage
+
+| Quality Dimension | Metrics Evaluated |
+|---|---|
+| Retrieval Quality | Contextual Precision, Contextual Recall |
+| Response Quality | Faithfulness, Answer Relevancy |
+| Scope Control | Scope Adherence |
+| AI Safety | Toxicity, PII Leakage, Prompt Leakage |
+| Reliability | Success Rate, Error Rate, Retry Behavior |
+| Performance | Response Latency |
+| Cost | Token Usage, Estimated API Cost |
+
+### 3. Benchmarking Notes
+
+- Initial results were obtained using 2 test cases per evaluation stage.
+- Scores are preliminary and are not statistically representative of the complete golden datasets.
+- Full-dataset evaluation is pending due to Gemini API rate limits and evaluation resource constraints.
+- Sequential judge execution (`max_concurrent=1`, `run_async=False`) was configured to reduce concurrent API requests.
+- The framework supports larger golden datasets and repeatable regression evaluations.
 
 ## Tech Stack
 
@@ -82,7 +116,6 @@ uv run python -m evals.eval_rag_pipeline
 uv run python -m evals.eval_application
 uv run python -m evals.eval_toxicity
 uv run python -m evals.eval_leakage
-uv run python -m evals.eval_scope
 uv run python -m evals.eval_scope_safety
 ```
 
