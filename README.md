@@ -2,6 +2,8 @@
 
 An evaluation framework for assessing the retrieval quality, response quality, safety, and operational performance of a Retrieval-Augmented Generation (RAG) application using **DeepEval** and **Google Gemini**.
 
+<img width="1910" height="878" alt="image" src="https://github.com/user-attachments/assets/34f1ffd6-3413-4764-a17e-f263bfa26410" />
+
 ## Key Features
 
 - **Retriever Evaluation:** Contextual precision and recall.
